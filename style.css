@@ -1,0 +1,657 @@
+/* =====================================================
+   KAPALI KALE TARAFTARLAR DERNEĞİ - CSS
+   MOBİL OPTİMİZE EDİLMİŞ VERSİYON
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Ana Renkler */
+    --color-black: #0b0b0b;
+    --color-dark: #1a1a1a;
+    --color-red: #b30000;
+    --color-red-dark: #8b0000;
+    --color-yellow: #FFD700;
+    --color-white: #ffffff;
+    --color-gray: #e0e0e0;
+    
+    /* Gradient'ler */
+    --gradient-primary: linear-gradient(135deg, #b30000 0%, #8b0000 100%);
+    --gradient-yellow: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    
+    /* Fontlar */
+    --font-primary: 'Montserrat', sans-serif;
+    
+    /* Spacing */
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    
+    /* Transitions */
+    --transition-normal: 0.3s ease;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.6;
+    padding-top: 80px; /* Mobil için küçültüldü */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Yatay scroll'u önle */
+}
+
+.content-section {
+    flex: 1;
+    padding: var(--spacing-md) 0;
+    min-height: auto;
+}
+
+/* =====================================================
+   HEADER & NAVBAR - MOBİL OPTİMİZE
+   ===================================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #000000;
+    border-bottom: 3px solid var(--color-red);
+    padding: 0.8rem 0;
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1);
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* =============================
+   LOGO - MOBİL OPTİMİZE
+   ============================= */
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.site-logo {
+    max-height: 50px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+}
+
+/* =============================
+   HAMBURcopyGER MENU BUTTON
+   ============================= */
+
+.mobile-menu-toggle {
+    display: none; /* Desktop'ta gizli */
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: 2px solid var(--color-yellow);
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 4px;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:active {
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--color-yellow);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* =============================
+   NAVIGATION MENU
+   ============================= */
+
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.nav-link {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-white);
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-black);
+    background-color: var(--color-yellow);
+    box-shadow: 0 0 10px var(--color-yellow);
+}
+
+/* =====================================================
+   MOBİL RESPONSIVE - HAMBURGER MENU
+   ===================================================== */
+
+@media (max-width: 992px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex; /* Mobilde görünür */
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%; /* Başlangıçta ekran dışında */
+        width: 280px;
+        max-width: 80%;
+        height: calc(100vh - 70px);
+        background: #000000;
+        border-right: 3px solid var(--color-red);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        padding: 1.5rem 0;
+        transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        overflow-y: auto;
+        box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-menu.active {
+        left: 0; /* Açıldığında görünür */
+    }
+    
+    .nav-link {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border-radius: 0;
+        border-bottom: 1px solid #333;
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--color-red);
+        color: var(--color-yellow);
+        border-left: 4px solid var(--color-yellow);
+        box-shadow: none;
+    }
+    
+    /* Overlay - Menu açıkken arka planı karart */
+    .nav-overlay {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(3px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+    
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* =====================================================
+   GENEL SAYFA YAPILARI - MOBİL OPTİMİZE
+   ===================================================== */
+
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    color: var(--color-yellow);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--color-red);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    width: 100%;
+}
+
+/* =====================================================
+   FORMLAR - MOBİL OPTİMİZE
+   ===================================================== */
+
+.form-wrapper {
+    background: var(--color-dark);
+    padding: 1.5rem;
+    border: 1px solid var(--color-red);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-yellow);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    background: #000;
+    border: 1px solid #333;
+    color: white;
+    font-family: var(--font-primary);
+    font-size: 16px; /* iOS zoom'u önlemek için min 16px */
+    border-radius: 4px;
+    -webkit-appearance: none; /* iOS default stillerini kaldır */
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-yellow);
+}
+
+button[type="submit"],
+.btn-submit {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--color-red);
+    color: white;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    touch-action: manipulation; /* Mobil için tıklama gecikmesini önle */
+}
+
+button[type="submit"]:hover,
+.btn-submit:hover {
+    background: var(--color-red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(179, 0, 0, 0.4);
+}
+
+button[type="submit"]:active,
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* Radio Kartları - MOBİL OPTİMİZE */
+.radio-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-card {
+    background: #000;
+    border: 2px solid #333;
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-radius: 4px;
+    font-weight: 600;
+    touch-action: manipulation;
+}
+.radio-card input {
+    display: none;
+}
+
+.radio-card:has(input:checked) {
+    background: var(--color-red);
+    border-color: var(--color-yellow);
+    color: var(--color-yellow);
+    transform: scale(1.05);
+}
+
+.radio-card:active {
+    transform: scale(0.98);
+}
+
+.radio-card.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    border-color: #444;
+}
+
+/* Uyarı Mesajları - MOBİL OPTİMİZE */
+.warning-box {
+    background-color: rgba(255, 215, 0, 0.1);
+    border: 1px solid var(--color-yellow);
+    color: var(--color-yellow);
+    padding: 1rem;
+    margin-top: 1rem;
+    display: none;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+   SOSYAL MEDYA İKONLARI - MOBİL OPTİMİZE
+   ===================================================== */
+
+.contact-social {
+    text-align: left;
+}
+
+/* Başlık sola yaslı kalsın */
+.contact-social h4 {
+    color: var(--color-white);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-red);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* İkonları sola yasla */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* ← kritik değişiklik */
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: var(--color-white);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    touch-action: manipulation;
+}
+
+.social-icon svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+.social-icon:hover,
+.social-icon:active {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+    color: var(--color-white);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(179, 0, 0, 0.4);
+}
+
+/* =====================================================
+   İLETİŞİM LAYOUT - MOBİL OPTİMİZE
+   ===================================================== */
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.contact-info h3 {
+    color: var(--color-red);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-item {
+    margin-bottom: 1.5rem;
+    color: #ddd;
+}
+
+.contact-item strong {
+    color: white;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.footer {
+    background: var(--color-black);
+    border-top: 2px solid var(--color-red);
+    padding: 2rem 0 1rem;
+    margin-top: auto;
+    text-align: center;
+}
+
+/* Logo */
+.footer .site-logo {
+    display: block;
+    margin: 0 auto 0.75rem;
+    width: 150px; /* isteğe göre */
+}
+
+/* Yazılar */
+.footer p {
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+    color: var(--color-gray);
+}
+
+/* Telif satırı biraz daha sönük */
+.footer p:last-child {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+
+/* =====================================================
+   MOBİL RESPONSIVE - DETAYLI AYARLAR
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.6rem;
+        padding: 0.5rem;
+    }
+    
+    .form-wrapper {
+        padding: 1rem;
+    }
+    
+    .radio-cards {
+        flex-direction: column;
+    }
+    
+    .radio-card {
+        min-width: 100%;
+    }
+    
+    .site-logo {
+        max-height: 40px;
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .map-title {
+        font-size: 1.1rem;
+    }
+    
+    .map-text {
+        font-size: 0.85rem;
+    }
+    
+    .btn-map {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 65px;
+    }
+    
+    .header {
+        padding: 0.6rem 0;
+    }
+    
+    .page-title {
+        font-size: 1.4rem;
+    }
+    
+    .site-logo {
+        max-height: 35px;
+    }
+    
+    input,
+    select,
+    textarea {
+        padding: 0.9rem;
+    }
+    
+    button[type="submit"],
+    .btn-submit {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .social-icons {
+        gap: 12px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* Tablet için özel ayarlar */
+@media (min-width: 768px) and (max-width: 992px) {
+    .nav-menu {
+        width: 320px;
+    }
+    
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* Desktop için geri yükleme */
+@media (min-width: 993px) {
+    body {
+        padding-top: 100px;
+    }
+    
+    .nav-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .contact-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
+/* Touch cihazlar için genel optimizasyonlar */
+@media (hover: none) and (pointer: coarse) {
+    /* Tüm tıklanabilir elementler için minimum boyut */
+    .nav-link,
+    .radio-card,
+    .social-icon,
+    button,
+    .btn-map {
+        min-height: 44px; /* Apple önerisi */
+        min-width: 44px;
+    }
+    
+    /* Hover efektlerini devre dışı bırak, active kullan */
+    .nav-link:hover {
+        background: transparent;
+        color: var(--color-white);
+    }
+    
+    .nav-link:active {
+        background-color: var(--color-yellow);
+        color: var(--color-black);
+    }
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tayfalarımız | Kapalı Kale</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =========================================
+           TAYFA SAYFASINA ÖZEL CSS AYARLARI
+           ========================================= */
+
+        /* 1. Izgara Yapısı (Grid) */
+        .tayfa-grid {
+            display: grid;
+            /* Varsayılan (Masaüstü): 5 Sütun */
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 1.5rem;
+        }
+
+        /* 2. Responsive (Tablet & Mobil Ayarları) */
+        @media (max-width: 1200px) {
+            .tayfa-grid {
+                grid-template-columns: repeat(4, 1fr); /* Küçük ekranda 4'lü */
+            }
+        }
+
+        @media (max-width: 992px) {
+            .tayfa-grid {
+                grid-template-columns: repeat(3, 1fr); /* Tablette 3'lü */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tayfa-grid {
+                grid-template-columns: repeat(2, 1fr); /* Telefonda 2'li */
+                gap: 1rem;
+            }
+        }
+
+        /* 3. Kart ve Görsel Ayarları */
+        .tayfa-item {
+            position: relative;
+            height: 220px; /* Kareye yakın, logolar için ideal yükseklik */
+            overflow: hidden;
+            background: #111; /* Koyu gri arka plan */
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .tayfa-item:hover {
+            border-color: var(--color-red);
+            transform: translateY(-5px);
+        }
+
+        .tayfa-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Logoyu kesmeden sığdır */
+            background-color: #0b0b0b;
+        }
+
+        /* İsim Etiketi (Hover'da Çıkan) */
+        .tayfa-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(179, 0, 0, 0.9); /* Kırmızı şerit */
+            padding: 01px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: 0.3s;
+        }
+
+        .tayfa-item:hover .tayfa-overlay {
+            transform: translateY(0);
+        }
+
+        .tayfa-title {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+                </a>
+            </div>                
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Anasayfa</a>
+                    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                    <a href="duyurular.html" class="nav-link">Duyurular</a>
+                    <a href="galeri.html" class="nav-link">Galeri</a>
+                    <a href="tayfalarimiz.html" class="nav-link">Tayfalarımız</a>
+                    <a href="deplasman.html" class="nav-link">Deplasman</a>
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container">
+            
+            <h1 class="page-title">TAYFALARIMIZ</h1>
+
+            <div class="tayfa-grid">
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="logo/ALPARSLAN.png" alt="ALPARSLAN" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">ALPARSLAN</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="logo/ANBARLILAR.png" alt="ANBARLILAR" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">ANBARLILAR</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="logo/BELSİNLİLER.png" alt="BELSİNLİLER" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">BELSİNLİLER</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="logo/EFSANE-NATOLULAR.png" alt="EFSANE NATOLULAR" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">EFSANE NATOLULAR</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="logo/FORZA-LEGEND.png" alt="FORZA LEGEND" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">FORZA LEGEND</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="350">
+                    <img src="logo/KAPALI-KALE-ANKARA.png" alt="KK ANKARA" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">KK ANKARA</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="logo/KAPALI-KALE-ANTALYA.png" alt="KK ANTALYA" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">KK ANTALYA</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="450">
+                    <img src="logo/KAPALI-KALE-İSTANBUL.png" alt="KK İSTANBUL" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">KK İSTANBUL</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="logo/KAPALI-KALE-ÜNİVERSİTE.png" alt="KK ÜNİVERSİTE" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">KK ÜNİVERSİTE</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="550">
+                    <img src="logo/KAPALI-LİSE.png" alt="KAPALI LİSE" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">KAPALI LİSE</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="600">
+                    <img src="logo/KIRMIZI-ORDU.png" alt="KIRMIZI ORDU" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">KIRMIZI ORDU</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="650">
+                    <img src="logo/SOLDİER-TAYFA.png" alt="SOLDIER TAYFA" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">SOLDIER TAYFA</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="700">
+                    <img src="logo/ULTRAS-NEWCİTY.png" alt="ULTRAS NEWCITY" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">ULTRAS NEWCITY</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="750">
+                    <img src="logo/ULTRAS-REDBOYS.png" alt="ULTRAS REDBOYS" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">ULTRAS REDBOYS</h3></div>
+                </div>
+
+                <div class="tayfa-item" data-aos="fade-up" data-aos-delay="800">
+                    <img src="logo/ULTRAS-TAYFA.png" alt="ULTRAS TAYFA" class="tayfa-img">
+                    <div class="tayfa-overlay"><h3 class="tayfa-title">ULTRAS TAYFA</h3></div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+        <p class="footer-title">Kapalı Kale Taraftarlar Derneği</p>
+        <p class="footer-copy">&copy; 2008 - 2026 Tüm hakları saklıdır.</p>
+    </div>
+</footer>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

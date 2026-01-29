@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri | Kapalı Kale</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .gallery-item:hover { border-color: var(--color-yellow); }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: 0.3s;
+        }
+        .gallery-item:hover .gallery-caption { transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+                </a>
+            </div>                
+                    <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Anasayfa</a>
+                    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                    <a href="duyurular.html" class="nav-link">Duyurular</a>
+                    <a href="galeri.html" class="nav-link">Galeri</a>
+                    <a href="tayfalarimiz.html" class="nav-link">Tayfalarımız</a>
+                    <a href="deplasman.html" class="nav-link">Deplasman</a>
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container">
+            <h1 class="page-title">TRİBÜN GALERİSİ</h1>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/b30000/FFF?text=GÖRSEL1" alt="Tribün">
+                    <div class="gallery-caption">GÖRSEL1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/b30000/FFF?text=GÖRSEL2" alt="Tribün">
+                    <div class="gallery-caption">GÖRSEL2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/b30000/FFF?text=GÖRSEL3" alt="Tribün">
+                    <div class="gallery-caption">GÖRSEL3</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/b30000/FFF?text=GÖRSEL4" alt="Tribün">
+                    <div class="gallery-caption">GÖRSEL4</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/b30000/FFF?text=GÖRSEL5" alt="Tribün">
+                    <div class="gallery-caption">GÖRSEL5</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/b30000/FFF?text=GÖRSEL6" alt="Tribün">
+                    <div class="gallery-caption">GÖRSEL6</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/b30000/FFF?text=GÖRSEL7" alt="Tribün">
+                    <div class="gallery-caption">GÖRSEL7</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/400x400/b30000/FFF?text=GÖRSEL8" alt="Tribün">
+                    <div class="gallery-caption">GÖRSEL8</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+        <p class="footer-title">Kapalı Kale Taraftarlar Derneği</p>
+        <p class="footer-copy">&copy; 2008 - 2026 Tüm hakları saklıdır.</p>
+    </div>
+</footer>
+    <script src="main.js"></script>
+</body>
+</html>

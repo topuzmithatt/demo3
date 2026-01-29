@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deplasman Başvurusu | Kapalı Kale</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* HİZALAMA DÜZELTMESİ İÇİN ÖZEL CSS */
+        .deplasman-wrapper {
+            max-width: 800px; /* Form ile aynı genişlik */
+            margin: 0 auto;   /* Sayfada ortala */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* İçerikleri sola yasla */
+        }
+
+        /* Başlığı sola çekiyoruz */
+        .deplasman-wrapper .page-title {
+            text-align: left;
+            margin-left: 0;
+            width: 100%;
+            border-bottom: 2px solid var(--color-red); /* Alt çizgi */
+        }
+
+        /* Formun kendi ortalamasını iptal edip kapsayıcıya uyduruyoruz */
+        .deplasman-wrapper .form-wrapper {
+            margin: 0;
+            width: 100%;
+            max-width: 100%; /* Global CSS'i ezmek için */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+                </a>
+            </div>                
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Anasayfa</a>
+                    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                    <a href="duyurular.html" class="nav-link">Duyurular</a>
+                    <a href="galeri.html" class="nav-link">Galeri</a>
+                    <a href="tayfalarimiz.html" class="nav-link">Tayfalarımız</a>
+                    <a href="deplasman.html" class="nav-link">Deplasman</a>
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container">
+            
+            <div class="deplasman-wrapper">
+                
+                <h1 class="page-title">DEPLASMAN BAŞVURUSU</h1>
+                
+                <div class="form-wrapper">
+                    <form id="membershipForm">
+                        <div class="form-group">
+                            <label for="fullName">Ad Soyad</label>
+                            <input type="text" id="fullName" required placeholder="Adınız Soyadınız">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" required placeholder="05XX XXX XX XX">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta Adresi</label>
+                            <input type="email" id="email" required placeholder="ornek@email.com">
+                        </div>
+                        <hr style="border: 0; border-top: 1px solid #333; margin: 2rem 0;">
+
+                        <div class="form-group">
+                            <label>Passolig Kartınız Var mı?</label>
+                            <div class="radio-cards">
+                                <label class="radio-card">
+                                    <input type="radio" name="passoCheck" value="Evet" required>
+                                    <span>Evet.</span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="passoCheck" value="Hayır">
+                                    <span>Hayır.</span>
+                                </label>
+                            </div>
+                            <div id="passoWarning" class="warning-box"></div>
+                        </div>
+
+                        <div class="form-group visa-group">
+                            <label>Vizeniz (E-Bilet Süresi) Var mı?</label>
+                            <div class="radio-cards">
+                                <label class="radio-card">
+                                    <input type="radio" name="visaCheck" value="Evet" required>
+                                    <span>Evet, var.</span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="visaCheck" value="Hayır">
+                                    <span>Hayır, bitmiş.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <button type="submit" class="btn-submit">BAŞVURU YAP</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            </div>
+    </main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+        <p class="footer-title">Kapalı Kale Taraftarlar Derneği</p>
+        <p class="footer-copy">&copy; 2008 - 2026 Tüm hakları saklıdır.</p>
+    </div>
+</footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

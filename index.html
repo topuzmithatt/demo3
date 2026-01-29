@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapalı Kale | Taraftarlar Derneği</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sadece Anasayfaya Özel Stil */
+        .hero-section {
+            height: 80vh; /* Ekranı kapla */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url('https://denizpostasicom.teimg.com/crop/1280x720/denizpostasi-com/uploads/2024/06/2024/06/kapali-kale-yeni.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-white);
+        }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 1000;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+        .hero-title span { color: var(--color-red); }
+        .hero-subtitle {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--color-yellow);
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+        }
+        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            padding: 1rem 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid var(--color-red);
+            transition: 0.3s;
+        }
+        .btn-primary { background: var(--color-red); color: white; }
+        .btn-primary:hover { background: var(--color-red-dark); }
+        .btn-outline { border-color: var(--color-yellow); color: var(--color-yellow); }
+        .btn-outline:hover { background: var(--color-yellow); color: black; }
+        
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+                </a>
+            </div>                
+                    <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Anasayfa</a>
+                    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                    <a href="duyurular.html" class="nav-link">Duyurular</a>
+                    <a href="galeri.html" class="nav-link">Galeri</a>
+                    <a href="tayfalarimiz.html" class="nav-link">Tayfalarımız</a>
+                    <a href="deplasman.html" class="nav-link">Deplasman</a>
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1 class="hero-title">TAM BAĞIMSIZ <span>KAPALI KALE</span></h1>
+            <p class="hero-subtitle">BİR SEVDADIR KAYSERİSPOR...</p>
+            
+            <div class="cta-buttons">
+                <a href="deplasman.html" class="btn btn-primary">DEPLASMAN BAŞVURUSU</a>
+                <a href="hakkimizda.html" class="btn btn-outline">BİZİ TANIYIN</a>
+            </div>
+        </section>
+    </main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+        <p class="footer-title">Kapalı Kale Taraftarlar Derneği</p>
+        <p class="footer-copy">&copy; 2008 - 2026 Tüm hakları saklıdır.</p>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

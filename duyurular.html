@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duyurular | Kapalı Kale</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            min-height: 400px; /* Boşken zıplamasın diye */
+        }
+        /* Kart Link Özellikleri */
+        .news-card {
+            display: block;
+            background: #111;
+            border: 1px solid #333;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .news-card:hover { transform: translateY(-5px); border-color: var(--color-yellow); }
+        .news-img { height: 200px; background: #333; overflow: hidden; }
+        .news-img img { width: 100%; height: 100%; object-fit: cover; }
+        .news-content { padding: 1.5rem; }
+        .news-date { color: var(--color-red); font-size: 0.8rem; font-weight: bold; }
+        .news-title { font-size: 1.2rem; margin: 0.5rem 0; color: white; }
+        .news-desc { font-size: 0.9rem; color: #aaa; margin-bottom: 1rem; }
+        .read-more { color: var(--color-yellow); font-weight: bold; font-size: 0.9rem; }
+
+        /* SAYFALAMA (PAGINATION) CSS */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        .page-btn {
+            background: #111;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .page-btn:hover {
+            border-color: var(--color-yellow);
+            color: var(--color-yellow);
+        }
+        .page-btn.active {
+            background: var(--color-red);
+            border-color: var(--color-red);
+            color: white;
+        }
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            border-color: #333;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+                </a>
+            </div>                
+                    <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Anasayfa</a>
+                    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                    <a href="duyurular.html" class="nav-link">Duyurular</a>
+                    <a href="galeri.html" class="nav-link">Galeri</a>
+                    <a href="tayfalarimiz.html" class="nav-link">Tayfalarımız</a>
+                    <a href="deplasman.html" class="nav-link">Deplasman</a>
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container">
+            <h1 class="page-title">DUYURULAR</h1>
+            
+            <div class="news-grid" id="newsGrid"></div>
+
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+            <p class="footer-title">Kapalı Kale Taraftarlar Derneği</p>
+            <p class="footer-copy">&copy; 2008 - 2026 Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="haberler.js"></script>
+    
+    <script>
+        // --- AYARLAR ---
+        const ITEMS_PER_PAGE = 10; // Her sayfada kaç haber görünsün?
+        let currentPage = 1;
+
+        // --- TARİH DÖNÜŞTÜRME YARDIMCISI ---
+        // "28 OCAK 2026" gibi metinleri bilgisayarın anlayacağı tarihe çevirir
+        const aylar = {
+            "OCAK": 0, "ŞUBAT": 1, "MART": 2, "NİSAN": 3, "MAYIS": 4, "HAZİRAN": 5,
+            "TEMMUZ": 6, "AĞUSTOS": 7, "EYLÜL": 8, "EKİM": 9, "KASIM": 10, "ARALIK": 11
+        };
+
+        function parseDate(dateStr) {
+            try {
+                const parts = dateStr.trim().split(' '); // ["28", "OCAK", "2026"]
+                const day = parseInt(parts[0]);
+                const month = aylar[parts[1].toUpperCase()];
+                const year = parseInt(parts[2]);
+                return new Date(year, month, day);
+            } catch (e) {
+                return new Date(0); // Hata varsa en eskiye at
+            }
+        }
+
+        // --- 1. ÖNCE SIRALAMA YAP (EN YENİ EN ÜSTTE) ---
+        haberListesi.sort((a, b) => {
+            return parseDate(b.tarih) - parseDate(a.tarih);
+        });
+
+        // --- 2. SAYFALAMA VE GÖSTERİM FONKSİYONU ---
+        function renderNews() {
+            const grid = document.getElementById('newsGrid');
+            const pagination = document.getElementById('pagination');
+            
+            grid.innerHTML = '';
+            pagination.innerHTML = '';
+
+            // Hangi aralıktaki haberleri göstereceğiz?
+            const start = (currentPage - 1) * ITEMS_PER_PAGE;
+            const end = start + ITEMS_PER_PAGE;
+            const pageItems = haberListesi.slice(start, end);
+
+            // Haberleri Bas
+            pageItems.forEach(haber => {
+                const html = `
+                    <a href="haber-detay.html?id=${haber.id}" class="news-card">
+                        <div class="news-img">
+                            <img src="${haber.resim}" alt="${haber.baslik}">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">${haber.tarih}</span>
+                            <h3 class="news-title">${haber.baslik}</h3>
+                            <p class="news-desc">${haber.ozet}</p>
+                            <span class="read-more">DEVAMINI OKU &rarr;</span>
+                        </div>
+                    </a>
+                `;
+                grid.innerHTML += html;
+            });
+
+            // Sayfalama Butonlarını Bas
+            const totalPages = Math.ceil(haberListesi.length / ITEMS_PER_PAGE);
+
+            if (totalPages > 1) {
+                // Önceki Butonu
+                const prevBtn = document.createElement('button');
+                prevBtn.innerText = '←';
+                prevBtn.className = 'page-btn';
+                prevBtn.disabled = currentPage === 1;
+                prevBtn.onclick = () => { currentPage--; renderNews(); window.scrollTo(0,0); };
+                pagination.appendChild(prevBtn);
+
+                // Sayfa Numaraları
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.innerText = i;
+                    btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                    btn.onclick = () => { currentPage = i; renderNews(); window.scrollTo(0,0); };
+                    pagination.appendChild(btn);
+                }
+
+                // Sonraki Butonu
+                const nextBtn = document.createElement('button');
+                nextBtn.innerText = '→';
+                nextBtn.className = 'page-btn';
+                nextBtn.disabled = currentPage === totalPages;
+                nextBtn.onclick = () => { currentPage++; renderNews(); window.scrollTo(0,0); };
+                pagination.appendChild(nextBtn);
+            }
+        }
+
+        // Başlat
+        renderNews();
+
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="tr">

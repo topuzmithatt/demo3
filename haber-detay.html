@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haber Detayı | Kapalı Kale</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .news-detail-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #111;
+            padding: 2rem;
+            border: 1px solid #333;
+        }
+        .detail-img { width: 100%; height: 400px; object-fit: cover; margin-bottom: 2rem; border-bottom: 4px solid var(--color-red); }
+        .detail-date { color: var(--color-yellow); font-size: 0.9rem; font-weight: bold; display: block; margin-bottom: 0.5rem; }
+        .detail-title { color: white; font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .detail-text { color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .detail-text p { margin-bottom: 1rem; }
+        .back-btn { display: inline-block; margin-top: 2rem; color: var(--color-red); font-weight: bold; text-decoration: none; border: 1px solid var(--color-red); padding: 10px 20px; transition: 0.3s; }
+        .back-btn:hover { background: var(--color-red); color: white; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+                </a>
+            </div>                
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Anasayfa</a>
+                    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                    <a href="duyurular.html" class="nav-link">Duyurular</a>
+                    <a href="galeri.html" class="nav-link">Galeri</a>
+                    <a href="tayfalarimiz.html" class="nav-link">Tayfalarımız</a>
+                    <a href="deplasman.html" class="nav-link">Deplasman</a>
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container">
+            <div class="news-detail-wrapper" id="detailContent">
+                </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container" style="text-align: center; color: var(--color-gray);">
+            <p>&copy; 2025 Kapalı Kale Taraftarlar Derneği</p>
+        </div>
+    </footer>
+
+    <script src="haberler.js"></script>
+    <script>
+        // 1. URL'den ID'yi al (?id=1 kısmını okur)
+        const urlParams = new URLSearchParams(window.location.search);
+        const haberId = parseInt(urlParams.get('id'));
+
+        // 2. Haber listesinden doğru haberi bul
+        const haber = haberListesi.find(h => h.id === haberId);
+
+        // 3. İçeriği doldur
+        const container = document.getElementById('detailContent');
+
+        if (haber) {
+            container.innerHTML = `
+                <img src="${haber.resim}" alt="${haber.baslik}" class="detail-img">
+                <span class="detail-date">${haber.tarih}</span>
+                <h1 class="detail-title">${haber.baslik}</h1>
+                <div class="detail-text">${haber.icerik}</div>
+                <a href="duyurular.html" class="back-btn">← DUYURULARA DÖN</a>
+            `;
+            // Sayfa başlığını da güncelle
+            document.title = haber.baslik + " | Kapalı Kale";
+        } else {
+            container.innerHTML = `<h2>Haber bulunamadı!</h2><a href="duyurular.html" class="back-btn">← Geri Dön</a>`;
+        }
+    </script>
+</body>
+</html>

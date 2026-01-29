@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda | Kapalı Kale</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Bu sayfaya özel hizalama kapsayıcısı */
+        .about-wrapper {
+            max-width: 800px; /* Metin kutularıyla aynı genişlik */
+            margin: 0 auto;   /* Sayfada ortalar */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* İçindeki her şeyi (Başlık dahil) sola yaslar */
+        }
+
+        .text-block {
+            width: 100%; /* Kapsayıcıyı doldur */
+            margin-bottom: 3rem;
+            background: #111;
+            padding: 2rem;
+            border-left: 4px solid var(--color-red);
+            /* Eski margin: 0 auto; kaldırıldı çünkü wrapper bunu hallediyor */
+        }
+
+        .text-block p { 
+            margin-bottom: 1rem; 
+            font-size: 1.1rem; 
+            color: #ddd; 
+        }
+
+        .highlight { 
+            color: var(--color-yellow); 
+            font-weight: bold; 
+        }
+
+        /* Başlık için özel ayar (Global CSS'i ezmek için) */
+        .about-wrapper .page-title {
+            text-align: left;
+            margin-left: 0;
+            /* Flex container içinde olduğu için otomatik sola yaslanır */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+                </a>
+            </div>                
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Anasayfa</a>
+                    <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                    <a href="duyurular.html" class="nav-link">Duyurular</a>
+                    <a href="galeri.html" class="nav-link">Galeri</a>
+                    <a href="tayfalarimiz.html" class="nav-link">Tayfalarımız</a>
+                    <a href="deplasman.html" class="nav-link">Deplasman</a>
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container">
+            <div class="about-wrapper">
+                
+                <h1 class="page-title">HAKKIMIZDA</h1>
+
+<div class="text-block" style="border-left-color: var(--color-yellow);">
+    <h2 style="color: var(--color-white); margin-bottom: 1rem;">BİZ KİMİZ?</h2>
+
+    <p>
+        <strong>Bizler;</strong> sarı-kırmızı renklere gönül vermiş, 
+        <strong>Kayseri şehrinin markasına ve değerlerine koşulsuz sahip çıkan</strong>, 
+        iyi günde ve kötü günde armasını asla yalnız bırakmayan 
+        <strong>büyük Kayserispor ailesinin en gür sesiyiz.</strong>
+    </p>
+
+    <p>
+        <strong>Kapalı Kale;</strong> sadece stadyumda 90 dakika tezahürat yapan bir topluluk değil, 
+        bu şehrin sokaklarında, deplasman yollarında ve sosyal hayatın içinde 
+        <strong>"Kayserisporluluk" bilincini yaşatan bir yaşam biçimidir.</strong>
+    </p>
+
+    <p>
+        <strong>Duruşumuz ve Amacımız:</strong>  
+        Kurulduğumuz günden bu yana temel gayemiz; 
+        <strong>Kayserispor’un başarısı için itici güç olmak</strong> ve 
+        tribün kültürünü <strong>saygı, sadakat ve coşku</strong> çerçevesinde yüceltmektir.
+    </p>
+
+    <p>
+        <strong>Sadakat:</strong>  
+        Skor ne olursa olsun, ligdeki konum ne olursa olsun; 
+        <strong>armanın olduğu her yerde biz varız.</strong>  
+        Yağmur, çamur, kar veya mesafe bizim için engel değil, 
+        sadece tutkumuzu körükleyen detaylardır.
+    </p>
+
+    <p>
+        <strong>Şehir Milliyetçiliği:</strong>  
+        Kayseri’nin en büyük markası olan <strong>Kayserispor’u savunmak</strong>, 
+        şehrimizin itibarını tribünlerde ve deplasmanlarda 
+        <strong>en iyi şekilde temsil etmek kırmızı çizgimizdir.</strong>
+    </p>
+
+    <p>
+        <strong>Sosyal Sorumluluk:</strong>  
+        Bizler sadece tribünde değil; sosyal yardımlaşma projeleriyle, 
+        kütüphane kurulumlarıyla ve afet bölgelerine uzattığımız yardım eliyle 
+        <strong>halkın içindeyiz.</strong>  
+        Çünkü biliyoruz ki; <strong>"Kapalı Kale Halktır!"</strong>
+    </p>
+
+    <p>
+        <strong>Neden "Kapalı Kale"?</strong>  
+        Adımız, sadece bir tribün isminden ibaret değildir.  
+        Biz, bu takımın savunmasındaki <strong>en sağlam "Kale"</strong>yiz.  
+        Rüzgâr ne kadar sert eserse essin, Kayserispor’a gelebilecek her türlü 
+        haksızlığın karşısında <strong>dimdik duran, yıkılmayan bir duvarız.</strong>
+    </p>
+
+    <p>
+        <strong>Ahmet Dirgenali liderliğinde</strong>, geçmişten aldığımız mirası geleceğe taşıyor; 
+        tribünlerdeki bestelerimizle, görsel şovlarımızla ve bitmeyen enerjimizle 
+        <strong>Türk futbolunda parmakla gösterilen bir tribün olmanın</strong> gururunu yaşıyoruz.
+    </p>
+
+    <p>
+        <strong>Çağrımız:</strong>  
+        Bu sevda, babadan oğula geçen bir mirastır.  
+        Bu tribünde herkese yer var, ama <strong>ihanete yer yok.</strong>  
+        Eğer senin de kalbin <strong>sarı-kırmızı</strong> atıyorsa, 
+        <strong>yerin bizim yanımızdır.</strong>
+    </p>
+
+    <p style="font-weight: 700; text-align: center; margin-top: 1.5rem;">
+        Unutma; <strong>Sen yoksan, bir kişi eksiğiz!</strong>
+    </p>
+</div>
+
+<div class="text-block mission-vision" style="border-left-color: var(--color-red);">
+    <h2 class="section-title">MİSYONUMUZ</h2>
+
+    <p>
+        <strong>Kapalı Kale Taraftar Grubu</strong> olarak varoluş sebebimiz ve üstlendiğimiz görevler şunlardır:
+    </p>
+
+    <ul class="mv-list">
+        <li>
+            <strong>Koşulsuz Destek:</strong>
+            Şehrimizin en büyük markası olan Kayserispor’u, iç sahada ve deplasmanda,
+            skor tabelasından bağımsız olarak 90 dakika boyunca coşkuyla desteklemek.
+        </li>
+        <li>
+            <strong>Şehri Savunmak:</strong>
+            Kayseri’nin onurunu ve itibarını sportif arenada en üst düzeyde temsil etmek,
+            kulübümüzün haklarını her platformda tavizsiz şekilde savunmak.
+        </li>
+        <li>
+            <strong>Kayserisporluluk Bilinci:</strong>
+            “Şehrinin Takımını Tut” anlayışıyla özellikle gençlere Kayserispor sevgisini
+            aşılamak ve şehir kültürünü yaşatmak.
+        </li>
+        <li>
+            <strong>Sosyal Sorumluluk:</strong>
+            Yardımlaşma kampanyaları, sosyal projeler ve eğitim destekleriyle
+            şehrin sosyal dokusuna katkı sağlamak.
+        </li>
+    </ul>
+    <br><br>
+    <h2 class="section-title mt">VİZYONUMUZ</h2>
+
+    <ul class="mv-list">
+        <li>
+            <strong>Örnek Tribün Kültürü:</strong>
+            Türk futbolunda saygı duyulan, örnek gösterilen lider bir tribün organizasyonu olmak.
+        </li>
+        <li>
+            <strong>Nesilden Nesile Miras:</strong>
+            Tribün kültürünü şiddetten uzak, saygı ve sevgi temelli bir miras haline getirmek.
+        </li>
+        <li>
+            <strong>Bağımsız ve Güçlü Duruş:</strong>
+            Sadece armasından ve taraftarından güç alan, dürüst ve sadık bir yapı olmak.
+        </li>
+        <li>
+            <strong>Bütünleştirici Güç:</strong>
+            Kayserispor çatısı altında şehrin tüm dinamiklerini bir araya getiren
+            en büyük sivil taraftar hareketi olmayı sürdürmek.
+        </li>
+    </ul>
+</div>
+    </main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <img src="logo.png" alt="Kapalı Kale Logo" class="site-logo">
+        <p class="footer-title">Kapalı Kale Taraftarlar Derneği</p>
+        <p class="footer-copy">&copy; 2008 - 2026 Tüm hakları saklıdır.</p>
+    </div>
+</footer>
+    <script src="main.js"></script>
+</body>
+</html>
